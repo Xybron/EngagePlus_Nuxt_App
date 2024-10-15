@@ -1,0 +1,68 @@
+<html lang="en">
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    .wrap {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(229, 232, 245);
+    }
+
+    .loader {
+        display: inline-grid;
+        padding: 5px;
+    }
+
+    .loader:before,
+    .loader:after {
+        content: "";
+        grid-area: 1/1;
+        height: 40px;
+        aspect-ratio: 3;
+        --c: #2292d300 64%, #000 66% 98%, #0000 101%;
+        background:
+            radial-gradient(35% 146% at 50% 159%, var(--c)) 0 0,
+            radial-gradient(35% 146% at 50% -59%, var(--c)) 100% 100%;
+        background-size: calc(200%/3) 50%;
+        background-repeat: repeat-x;
+        clip-path: inset(0 100% 0 0);
+        animation: l16 1.5s infinite linear;
+    }
+
+    .loader:after {
+        scale: -1 1;
+        animation-delay: -.75s;
+    }
+
+    @keyframes l16 {
+        50% {
+            clip-path: inset(0)
+        }
+
+        to {
+            clip-path: inset(0 0 0 100%)
+        }
+    }
+</style>
+
+<body>
+
+    <div class="wrap">
+        <div class="loader"></div>
+        <p style="color: black;">Engage+ is loading...</p>
+
+    </div>
+
+</body>
+
+</html>
